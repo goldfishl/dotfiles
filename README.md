@@ -1,5 +1,3 @@
-# Dotfiles for configurations
-
 ## Terminal Font
 
 Powerline fonts
@@ -33,7 +31,9 @@ the main file `~/.hammerspoon/init.lua`
 
 the main file `~/.config/fish/config.fish`
 
-other files in `~/.config/fish/conf.d/`
+common files in `~/.config/fish/common/`
+
+machine specific files in `~/.config/fish/conf.d/[machine]/`
 
 
 ## zsh
