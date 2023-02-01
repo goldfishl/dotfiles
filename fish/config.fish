@@ -15,7 +15,8 @@ set --global tide_cmd_duration_decimals 3
 ## screen
 abbr --add scl screen -ls
 abbr --add scr screen -r
-abbr --add scc screen -S
+## specify UTF-8
+abbr --add scc screen -SU
 abbr --add shbf "#!/usr/bin/env fish"
 
 ## git
