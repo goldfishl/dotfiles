@@ -31,6 +31,10 @@ abbr --add gtcm git commit
 abbr --add gtp git push
 abbr --add gtr git reset
 
+# python
+## document suggested
+abbr --add pip python -m pip
+
 ## tools
 abbr --add v vim
 
