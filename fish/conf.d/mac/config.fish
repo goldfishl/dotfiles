@@ -25,3 +25,6 @@ set -gx PATH /usr/local/opt/man-db/libexec/bin $PATH
 # others
 ## autojump
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+
+# abbreviations
+abbr --add vs vscode
