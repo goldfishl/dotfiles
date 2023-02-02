@@ -8,10 +8,15 @@
 # - each completion argument fellow a specific description
 # - fish the completion
 function sync_config
-	set -lx dot_path (autojump dotfiles)
-	if test $status -ne 0
-		echo "autojump not installed or `dotfiles` never been visited"
-	end
+	set -lx dot_path (jump_path dotfiles)
+#	set -lx dot_path (autojump dotfiles)
+#	or read -P "autojump fail to find `dotfiles` directory, you need manually input the directory:" -lx dot_path
+#	or return
+#	if not test -d $dot_path	
+#		echo "the directory not exist."
+#		return
+#	end
+#	set dot_path ( realpath $dot_path)
 
 	set -l machine_list 'mac' 'scnu_ubuntu'
 	set -l tool_list 'fish' 'hammerspoon' 'vim'

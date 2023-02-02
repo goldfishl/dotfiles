@@ -11,6 +11,9 @@ if status is-interactive
     # <<< conda initialize <<<
 
     # venv default python env
-    source (autojump bin)/activate.fish	
+    source (autojump .venv)/jupyter/bin/activate.fish	
 
 end
+
+#set -gx JUPYTER_CONFIG_DIR /ai/ljl1/ljy/.jupyter
+#set -gx JUPYTERLAB_WORKSPACES_DIR /ai/ljl1/ljy/

@@ -2,18 +2,18 @@
 
 # install basic tools
 apt update && apt upgrade -y
-apt install -y --upgrade lsof screen software-properties-common
+apt install -y --upgrade lsof screen software-properties-common autojump
 
 # zsh+powerlevel10k and set zsh as default shell
 ## install zsh shell
-apt install -y --upgrade zsh
+#apt install -y --upgrade zsh
 
 ## install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 
 ## copy the dotfiles
-cp -f ./zsh/scnu_ubuntu/.zshrc ~/
-cp -f ./zsh/scnu_ubuntu/.p10k.zsh ~/
+#cp -f ./zsh/scnu_ubuntu/.zshrc ~/
+#cp -f ./zsh/scnu_ubuntu/.p10k.zsh ~/
 
 # fish+fisher+tide and set fish as default shell
 ## install fish
@@ -44,3 +44,5 @@ fish -c 'echo "1112121y" | tide configure'
 
 #which zsh | xargs chsh -s
 which fish | xargs chsh -s
+
+fish -c 'source ./fish/common/functions/sync_config.fish && sync_config -m scnu_ubuntu -a'
