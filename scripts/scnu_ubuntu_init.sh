@@ -43,6 +43,6 @@ fish -c 'echo "1112121y" | tide configure'
 
 
 #which zsh | xargs chsh -s
-which fish | xargs chsh -s
+chsh -s (which fish)
 
 fish -c 'source fish/common/functions/jump_path.fish && source ./fish/common/functions/sync_config.fish && sync_config -m scnu_ubuntu -a'
