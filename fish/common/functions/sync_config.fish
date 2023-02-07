@@ -9,6 +9,7 @@
 # - fish the completion
 function sync_config
 	set -lx dot_path (jump_path dotfiles)
+	or return 1
 #	set -lx dot_path (autojump dotfiles)
 #	or read -P "autojump fail to find `dotfiles` directory, you need manually input the directory:" -lx dot_path
 #	or return
