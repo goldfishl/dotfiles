@@ -23,3 +23,5 @@ function python_venv
     echo "source $_venv_path/%/bin/activate.fish"
 end
 abbr --add pyv --set-cursor --function python_venv
+
+abbr -add abd authbind --deep
