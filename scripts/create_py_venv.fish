@@ -15,7 +15,7 @@ if test $status -ne 0
     read -P "`.venv` dir not find, enter the path to create `.venv` directory:" -lx _venv_path
     or return
 
-    set _venv_path -lx (realpath $_venv_path)/.venv
+    eval "set -lx _venv_path $_venv_path/.venv"
     or echo "directory not exists" && return
 
     test -d $_venv_path
