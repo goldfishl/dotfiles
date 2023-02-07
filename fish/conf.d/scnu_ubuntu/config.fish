@@ -24,4 +24,4 @@ function python_venv
 end
 abbr --add pyv --set-cursor --function python_venv
 
-abbr -add abd authbind --deep
+abbr --add abd authbind --deep
