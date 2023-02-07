@@ -2,7 +2,7 @@
 
 # install basic tools
 apt update && apt upgrade -y
-apt install -y --upgrade lsof screen software-properties-common autojump
+apt install -y --upgrade lsof tmux software-properties-common autojump
 
 # zsh+powerlevel10k and set zsh as default shell
 ## install zsh shell

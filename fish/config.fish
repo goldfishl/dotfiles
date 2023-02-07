@@ -1,35 +1,37 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
-    # enable vi-mode
-    fish_vi_key_bindings
-
-
 end
+
+# enable vi-mode
+fish_vi_key_bindings
+
 # tide configuration
 ## command_duration
 set --global tide_cmd_duration_threshold 0
 set --global tide_cmd_duration_decimals 3 
 
 # abbreviations
-## screen
-abbr --add scl screen -ls
-abbr --add scr screen -r
-## specify UTF-8
-abbr --add scc screen -SU
-abbr --add shbf "#!/usr/bin/env fish"
+## tmux
+abbr --add tl tmux ls
+abbr --add ta tmux a -t
+abbr --add tn tmux new -s
+## iterm integration
+abbr --add tin tmux -CC
+abbr --add tia tmux -CC attach
 
 ## git
 abbr --add gtei vim .gitignore
-abbr --add gtad git add
-abbr --add gti git init
-abbr --add gtrm git remote
-abbr --add gtlg git log --all --graph
-abbr --add gtcl git clone
-abbr --add gts git status
-abbr --add gtcm git commit
-abbr --add gtp git push
-abbr --add gtr git reset
+abbr --add ga git add
+abbr --add gi git init
+abbr --add grm git remote
+abbr --add glg git log --all --graph
+abbr --add gcl git clone
+abbr --add gs git status
+abbr --add gcm git commit
+abbr --add gps git push
+abbr --add gpl git pull
+abbr --add gf git fetch
+abbr --add gr git reset
 
 # python
 ## document suggested

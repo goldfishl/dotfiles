@@ -5,9 +5,9 @@ or return
 eval "type -f python$_version &> /dev/null"
 if not test $status -eq 0 
     echo "python$_version not installed, installation starts"
-    sudo apt-add-repository ppa:deadsnakes/ppa
-    eval "apt install python$_version"
-    eval "apt install python$_version-venv"
+    echo "\n" | apt-add-repository ppa:deadsnakes/ppa
+    eval "apt install -y python$_version"
+    eval "apt install -y python$_version-venv"
 end
 
 set -f _venv_path (jump_path .venv)
