@@ -31,8 +31,8 @@ fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/HEAD/fun
 fish -c 'fisher install IlanCosman/tide@v5'
 
 ## copy dotfiles
-cp -f ./fish/config.fish ~/.config/fish/config.fish
-cp -f ./fish/conf.d/scnu_ubuntu/* ~/.config/fish/conf.d
+#cp -f ./fish/config.fish ~/.config/fish/config.fish
+#cp -f ./fish/conf.d/scnu_ubuntu/* ~/.config/fish/conf.d
 
 ## set tide
 ### Lean type 
@@ -43,6 +43,6 @@ fish -c 'echo "1112121y" | tide configure'
 
 
 #which zsh | xargs chsh -s
-chsh -s (which fish) $USER
+chsh -s $(which fish) $USER
 
 fish -c 'source fish/common/functions/jump_path.fish && source ./fish/common/functions/sync_config.fish && sync_config -m scnu_ubuntu -a'
