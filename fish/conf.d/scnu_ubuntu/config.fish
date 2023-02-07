@@ -17,3 +17,9 @@ end
 
 #set -gx JUPYTER_CONFIG_DIR /ai/ljl1/ljy/.jupyter
 #set -gx JUPYTERLAB_WORKSPACES_DIR /ai/ljl1/ljy/
+
+function python_venv
+    set -f _venv_path ( jump_path .venv)
+    echo "source $_venv_path/%/bin/activate.fish"
+end
+abbr --add pyv --set-cursor --function python_venv
