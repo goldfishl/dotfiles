@@ -1,3 +1,7 @@
-unminimize
 
-echo "you may need add a public key using the follew command, apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC"
+set -l key (unminimize 2> /dev/null | grep NO_PUBKEY | sed 's/.*NO_PUBKEY //g')
+if not test -z $key
+   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key
+   sudo apt update
+end
+unminimize

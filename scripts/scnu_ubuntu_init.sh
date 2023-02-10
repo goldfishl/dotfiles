@@ -23,6 +23,9 @@ echo "\n" | apt-add-repository ppa:fish-shell/release-3; apt update; apt install
 echo "\n" | add-apt-repository ppa:git-core/ppa
 apt update; apt install -y --upgrade git
 
+## git init
+git config --global core.editor vim
+
 ## put fish to /etc/shells
 echo /usr/local/bin/fish | tee -a /etc/shells
 

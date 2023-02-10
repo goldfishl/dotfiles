@@ -16,8 +16,8 @@ abbr --add tl tmux ls
 abbr --add ta tmux a -t
 abbr --add tn tmux new -s
 ## iterm integration
-abbr --add tin tmux -CC
-abbr --add tia tmux -CC attach
+abbr --add tin tmux -CC new -s
+abbr --add tia tmux -CC attach -t
 
 ## git
 abbr --add gtei vim .gitignore
@@ -32,6 +32,7 @@ abbr --add gps git push
 abbr --add gpl git pull
 abbr --add gf git fetch
 abbr --add gr git reset
+abbr --add gdff git diff
 
 # python
 ## document suggested
