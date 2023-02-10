@@ -65,13 +65,15 @@ function switchKeyBind(mods, key, appName)
 		end)
 end
 
-switchKeyBind("alt", "i", "code")
-switchKeyBind("alt", "o", "hammerspoon")
-switchKeyBind("alt", "b", "firefox")
-switchKeyBind("alt", "m", "obsidian")
-switchKeyBind("alt", "h", "chrome")
+switchKeyBind("alt", "2", "code")
+switchKeyBind("alt", "0", "hammerspoon")
+switchKeyBind("alt", "1", "firefox")
+switchKeyBind("alt", "3", "obsidian")
+switchKeyBind("alt", "9", "chrome")
+switchKeyBind("alt", "-", "iTerm2")
 
 -- hammerspoon events
+-- -- open console when `hammerspoon` active
 function applicationWatcher(appName, eventType, app)
 	if (appName == "Hammerspoon") then
 		if (eventType == hs.application.watcher.activated) then
@@ -92,3 +94,74 @@ appWatcher:start()
 
 hsConifgWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon", reloadConfig):start()
 hs.alert.show("hammerspoon config reloaded")
+
+
+-- tutorial
+
+-- simple window manager
+-- -- x, y, w and h (horizontal position, vertical position, 
+-- -- width and height, respectively).
+hs.hotkey.bind({"alt"}, "H", function()
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+  
+	f.x = max.x 
+	f.y = max.y
+	f.w = max.w / 2
+	f.h = max.h
+	win:setFrame(f)
+  end)
+ 
+hs.hotkey.bind({"alt"}, "L", function()
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+  
+	f.x = max.x + (max.w / 2)
+	f.y = max.y
+	f.w = max.w / 2
+	f.h = max.h
+	win:setFrame(f)
+  end)
+  
+hs.hotkey.bind({"alt"}, "J", function()
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+  
+	f.x = max.x 
+	f.y = max.h / 2
+	f.w = max.w
+	f.h = max.h / 2
+	win:setFrame(f)
+  end)
+  
+hs.hotkey.bind({"alt"}, "K", function()
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+  
+	f.x = max.x 
+	f.y = max.y 
+	f.w = max.w
+	f.h = max.h / 2
+	win:setFrame(f)
+  end)
+ 
+hs.hotkey.bind({"alt"}, "return", function()
+	local win = hs.window.focusedWindow()
+	local f = win:frame()
+	local screen = win:screen()
+	local max = screen:frame()
+  
+	f.x = max.x 
+	f.y = max.y 
+	f.w = max.w
+	f.h = max.h 
+	win:setFrame(f)
+  end)
