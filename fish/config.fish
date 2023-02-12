@@ -21,9 +21,9 @@ abbr --add tia tmux -CC attach -t
 
 ## git
 abbr --add gtei vim .gitignore
-abbr --add ga git add
+abbr --add ga git add -u
 abbr --add gi git init
-abbr --add grm git remote
+abbr --add grm git rm --cache
 abbr --add glg git log --all --graph
 abbr --add gcl git clone
 abbr --add gs git status
@@ -31,7 +31,7 @@ abbr --add gcm git commit
 abbr --add gps git push
 abbr --add gpl git pull
 abbr --add gf git fetch
-abbr --add gr git reset
+abbr --add grs git reset
 abbr --add gdff git diff
 
 # python
@@ -44,6 +44,7 @@ abbr --add v vim
 ## system
 abbr --add ae chmod +x
 abbr --add rd rm -rf
+abbr --add tr tree -L 1
 
 ## dir
 set fs ~/.config/fish
