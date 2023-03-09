@@ -38,13 +38,16 @@ abbr --add gdff git diff
 ## document suggested
 abbr --add pip python -m pip
 
-## tools
+# tools
 abbr --add v vim
 
-## system
+# system
 abbr --add ae chmod +x
 abbr --add rd rm -rf
 abbr --add tr tree -L 1
+
+# network
+abbr --add ipl curl -L http://myip.ipip.net/
 
 ## dir
 set fs ~/.config/fish
@@ -57,6 +60,7 @@ set lrawgithub https://raw.githubusercontent.com/goldfishl
 set rawgithub https://raw.githubusercontent.com/
 set slgithub git@github.com:goldfishl
 
+# load my functions and
 for file in (find $HOME/.config/fish/common/functions/ -maxdepth 1 -type f)
     source $file
 end

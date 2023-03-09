@@ -80,7 +80,7 @@ function applicationWatcher(appName, eventType, app)
 			hs.openConsole()
 		end
 		if (eventType == hs.application.watcher.deactivated) then
-			hs.closeConsole()
+			-- hs.closeConsole()
 			-- app:hide()
 		end
 	end
@@ -98,70 +98,77 @@ hs.alert.show("hammerspoon config reloaded")
 
 -- tutorial
 
--- simple window manager
--- -- x, y, w and h (horizontal position, vertical position, 
--- -- width and height, respectively).
-hs.hotkey.bind({"alt"}, "H", function()
-	local win = hs.window.focusedWindow()
-	local f = win:frame()
-	local screen = win:screen()
-	local max = screen:frame()
-  
-	f.x = max.x 
-	f.y = max.y
-	f.w = max.w / 2
-	f.h = max.h
-	win:setFrame(f)
-  end)
- 
-hs.hotkey.bind({"alt"}, "L", function()
-	local win = hs.window.focusedWindow()
-	local f = win:frame()
-	local screen = win:screen()
-	local max = screen:frame()
-  
-	f.x = max.x + (max.w / 2)
-	f.y = max.y
-	f.w = max.w / 2
-	f.h = max.h
-	win:setFrame(f)
-  end)
-  
-hs.hotkey.bind({"alt"}, "J", function()
-	local win = hs.window.focusedWindow()
-	local f = win:frame()
-	local screen = win:screen()
-	local max = screen:frame()
-  
-	f.x = max.x 
-	f.y = max.h / 2
-	f.w = max.w
-	f.h = max.h / 2
-	win:setFrame(f)
-  end)
-  
-hs.hotkey.bind({"alt"}, "K", function()
-	local win = hs.window.focusedWindow()
-	local f = win:frame()
-	local screen = win:screen()
-	local max = screen:frame()
-  
-	f.x = max.x 
-	f.y = max.y 
-	f.w = max.w
-	f.h = max.h / 2
-	win:setFrame(f)
-  end)
- 
-hs.hotkey.bind({"alt"}, "return", function()
-	local win = hs.window.focusedWindow()
-	local f = win:frame()
-	local screen = win:screen()
-	local max = screen:frame()
-  
-	f.x = max.x 
-	f.y = max.y 
-	f.w = max.w
-	f.h = max.h 
-	win:setFrame(f)
-  end)
+-- window manager
+dofile("/Users/longjinyu/.hammerspoon/window_manager.lua")
+
+-- Move focused window to another monitor
+-- function moveWindowToMonitor(monitor)
+--     local win = hs.window.focusedWindow()
+--     local newScreen = hs.screen.findByName(monitor)
+
+--     if win and newScreen then
+--         win:moveToScreen(newScreen)
+--     end
+-- end
+
+-- -- Define keyboard shortcuts to move window to left or right monitor
+-- hs.hotkey.bind({"alt", "cmd"}, "L", function()
+--     moveWindowToMonitor("LG")
+-- end)
+
+-- hs.hotkey.bind({"alt", "cmd"}, "H", function()
+--     moveWindowToMonitor("Retina")
+-- end)
+
+local builtinScreen = hs.screen.findByName("Retina")
+local LGScreen = hs.screen.findByName("LG")
+
+hs.hotkey.bind({"alt"}, "]", function()
+  local focusedWindow = hs.window.focusedWindow()
+  local screen = focusedWindow:screen()
+
+  if screen == builtinScreen then
+    focusedWindow:moveToScreen(LGScreen)
+  else
+    focusedWindow:moveToScreen(builtinScreen)
+  end
+end)
+
+-- hs.hotkey.bind({"alt"}, "[", function()
+--   local currentApp = hs.application.frontmostApplication()
+--   local nextWindow = currentApp:nextWindow()
+
+--   if nextWindow then
+--     nextWindow:focus()
+--   end
+-- end)
+
+
+
+local hyper = {"alt"}
+local win = hs.window
+local fnutils = hs.fnutils
+debug_w = nil
+hs.hotkey.bind(hyper, "[", function()
+    windows = win.focusedWindow():application():allWindows()
+
+    windows[#windows]:focus()
+end)
+
+-- local hyper = {"alt"}
+-- local win = hs.window
+
+-- hs.hotkey.bind(hyper, "[", function()
+--     local windows = win.focusedWindow():application():allWindows()
+--     local nextWindow = windows[1]
+
+--     for i, w in ipairs(windows) do
+--         if w == win.focusedWindow() then
+--             nextWindow = windows[(i % #windows) + 1]
+--             break
+--         end
+--     end
+
+--     nextWindow:focus()
+-- end)
+

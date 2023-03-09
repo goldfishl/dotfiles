@@ -8,9 +8,9 @@ if status is-interactive
 
     # function
     ## obsidian markdown edit
-    function lmd
-        ln -s ( realpath $argv[1]) $ob/symlink/(basename $argv[1])
-    end
+    #function lmd
+       # ln -s ( realpath $argv[1]) $ob/symlink/(basename $argv[1])
+    #end
 
     function vscode
         /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code $argv
